@@ -1,0 +1,13 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+    "contentVersion": "0.0.0.1",
+    "views": [
+        {
+            "kind": "Overview",
+            "properties": {
+                "header": "Azure Managed Application",
+                "description": "This managed application gets **publisher secret** and stores it in Azure Key Vault.<br />This is line #2<br />This is line #3"
+            }
+        }
+    ]
+}
