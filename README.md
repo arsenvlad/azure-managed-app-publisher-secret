@@ -41,7 +41,7 @@ az role assignment create --role "Key Vault resource manager template deployment
 
 ## Modify mainTemplate.json to use Publisher's Azure Key Vault
 
-Modify the following section of the mainTemplate.json to reference publisher's Azure Key Vault
+Modify the following section of the mainTemplate.json to reference publisher's Azure Key Vault by setting proper value for the subscriptionId (e.g. 06b230b6-ec16-422c-a319-487cbe82501a), resourceGroup (e.g. avama), Azure Key Vault Name (e.g. avamakv), and secret name in that Key Vault (e.g. publisherSecret)
 
 ```json
 "publisherSecret": {
