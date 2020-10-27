@@ -18,10 +18,40 @@
                 "visible": true
             }
         ],
-        "steps": [],
+        "steps": [
+            {
+                "name": "managedIdentitySettings",
+                "label": "Managed Identity Settings",
+                "subLabel": {
+                    "preValidation": "Configure managed identity settings",
+                    "postValidation": "Done"
+                },
+                "bladeTitle": "Managed Identity Settings",
+                "elements": [
+                    {
+                        "name": "appManagedIdentity",
+                        "type": "Microsoft.ManagedIdentity.IdentitySelector",
+                        "label": "Managed Identity Configuration",
+                        "toolTip": {
+                            "systemAssignedIdentity": "Enable system assigned identity to grant the managed application access to additional existing resources.",
+                            "userAssignedIdentity": "Add user assigned identities to grant the managed application access to additional existing resources."
+                        },
+                        "defaultValue": {
+                            "systemAssignedIdentity": "OnOnly"
+                        },
+                        "options": {
+                            "hideSystemAssignedIdentity": false,
+                            "hideUserAssignedIdentity": true
+                        },
+                        "visible": true
+                    }
+                ]
+            }
+        ],
         "outputs": {
             "location": "[location()]",
-            "name": "[basics('name')]"
+            "name": "[basics('name')]",
+            "managedIdentity": "[steps('managedIdentitySettings').appManagedIdentity]"
         }
     }
 }

@@ -15,6 +15,7 @@
     },
     "functions": [],
     "variables": {
+        "managedApplicationId": "[resourceGroup().managedBy]",
         "identityName": "[concat(parameters('name'),'-identity')]",
         "storageAccountName": "[concat(parameters('name'),uniqueString(resourceGroup().id))]",
         "keyVaultName": "[concat(parameters('name'),uniqueString(resourceGroup().id))]",
@@ -91,7 +92,7 @@
                                         "tenantId": "[subscription().tenantId]",
                                         "objectId": "[parameters('identityObjectId')]",
                                         "permissions": {
-                                            "keys": ["list", "get"],
+                                            "keys": [ "list", "get" ],
                                             "secrets": [ "list", "get" ]
                                         }
                                     }
@@ -183,6 +184,10 @@
         "keyVaultResourceId": {
             "type": "string",
             "value": "[reference('addSecretToKeyVault').outputs.keyVaultResourceId.value]"
+        },
+        "managedApplicationId": {
+            "type": "string",
+            "value": "[variables('managedApplicationId')]"
         }
     }
 }
