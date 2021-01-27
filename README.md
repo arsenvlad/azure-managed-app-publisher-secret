@@ -100,3 +100,15 @@ As expected, deployment fails with error message "KeyVaultParameterReferenceNotI
   ]
 }
 ```
+
+Secret access using user assigned managed identity from Azure Container Instance
+
+```bash
+az container create --resource-group mrg-avkeyvault --name aci2 --image "mcr.microsoft.com/azure-cli" --assign-identity "/subscriptions/06b230b6-ec16-422c-a319-487cbe82501a/resourcegroups/mrg-avkeyvault/providers/Microsoft.ManagedIdentity/userAssignedIdentities/avkeyvault-identity" --command-line "/bin/bash -c 'sleep 100000'"
+
+az login --identity --username "/subscriptions/06b230b6-ec16-422c-a319-487cbe82501a/resourcegroups/mrg-avkeyvault/providers/Microsoft.ManagedIdentity/userAssignedIdentities/avkeyvault-identity" --allow-no-subscriptions
+
+az keyvault secret list --vault-name avkeyvaultqgsyf4zscfjog
+
+az keyvault secret show --vault-name avkeyvaultqgsyf4zscfjog --name publisherSecret
+```
