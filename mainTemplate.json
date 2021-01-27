@@ -15,7 +15,7 @@
     },
     "functions": [],
     "variables": {
-        "managedApplicationId": "[resourceGroup().managedBy]",
+        "managedBy": "[resourceGroup().managedBy]",
         "identityName": "[concat(parameters('name'),'-identity')]",
         "storageAccountName": "[concat(parameters('name'),uniqueString(resourceGroup().id))]",
         "keyVaultName": "[concat(parameters('name'),uniqueString(resourceGroup().id))]",
@@ -185,9 +185,9 @@
             "type": "string",
             "value": "[reference('addSecretToKeyVault').outputs.keyVaultResourceId.value]"
         },
-        "managedApplicationId": {
+        "managedBy": {
             "type": "string",
-            "value": "[variables('managedApplicationId')]"
+            "value": "[variables('managedBy')]"
         }
     }
 }
