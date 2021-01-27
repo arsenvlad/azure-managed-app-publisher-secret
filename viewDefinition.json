@@ -8,6 +8,26 @@
                 "header": "Azure Managed Application",
                 "description": "This managed application gets **publisher secret** and stores it in Azure Key Vault.<br />This is line #2<br />This is line #3"
             }
+        },
+        {
+            "kind": "Metrics",
+            "properties": {
+                "displayName": "This is my metrics view",
+                "version": "1.0.0",
+                "charts": [
+                    {
+                        "displayName": "Sample chart",
+                        "chartType": "Line",
+                        "metrics": [
+                            {
+                                "name": "ServiceApiHit",
+                                "aggregationType": "count",
+                                "resourceType": "Microsoft.KeyVault/vaults"
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     ]
 }
